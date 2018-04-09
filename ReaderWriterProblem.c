@@ -60,12 +60,20 @@ printf("\nEnter number of readers:");
 scanf("%d",&n1);
 printf("\nEnter number of writers:");
 scanf("%d",&n2);
-for(i=0;i<=n1;i++)
-pthread_create(&tid1[i],NULL,reader,(void *)i);
-for(i=0;i<=n2;i++)
-pthread_create(&tid2[i],NULL,writer,(void *)i);
-for(i=0;i<=n1;i++)
+for(i=0;i<n1;i++)
+{
+pthread_create(&tid1[i],NULL,reader,&i);
+}
+  for(i=0;i<n2;i++)
+  {
+pthread_create(&tid2[i],NULL,writer,&i);
+  }
+  for(i=0;i<n1;i++)
+  {
 pthread_join(tid1[i],NULL);
-for(i=0;i<=n2;i++)
-pthread_join(tid2[i],NULL);
+  }
+for(i=0;i<n2;i++)
+{
+  pthread_join(tid2[i],NULL);
+}
 }
