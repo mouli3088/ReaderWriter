@@ -56,9 +56,9 @@ pthread_mutex_init(&writeraccess,NULL);
 pthread_mutex_init(&readeraccess,NULL);
 int n1,n2,i=0;
 pthread_t tid1[10],tid2[10];
-printf("\nEnter number of readers:");
+printf("\nEnter number of readers(Max 10):");
 scanf("%d",&n1);
-printf("\nEnter number of writers:");
+printf("\nEnter number of writers(Max 10):");
 scanf("%d",&n2);
 for(i=0;i<n1;i++)
 {
