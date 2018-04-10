@@ -39,8 +39,7 @@ sleep(rand()%SleepTime);
 }
 void *writer(void *arg2)
 {
- wc++;
-//int wc=*((int *)arg2)+1;
+wc++;
 printf("\nWriter %d wants to enter",wc);
 sleep(rand()%SleepTime);
 pthread_mutex_lock(&writeraccess);
